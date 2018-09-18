@@ -12,7 +12,7 @@ services:
       - ./geodata/datasets:/datasets
       - ./geodata/initdb:/docker-entrypoint-initdb
     environment:
-      - BAG
+      - GEODATASETS=BAG
 #      - BGT # no support yet
 #      - BRT # no support yet
     restart: unless-stopped

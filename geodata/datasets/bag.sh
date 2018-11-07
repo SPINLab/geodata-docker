@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -ex
 
-apt-get update && apt-get install -y curl
 curl -L -o ./bag.backup https://data.nlextract.nl/bag/postgis/bag-laatst.backup
 
 su postgres <<'EOF'

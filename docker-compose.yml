@@ -2,9 +2,7 @@ version: "2"
 
 services:
   geodata:
-#    image: mdillon/postgis:9.6
-    build:
-      context: ./geodata
+    image: mdillon/postgis:9.6
     ports:
       - '5432:5432'
     volumes:

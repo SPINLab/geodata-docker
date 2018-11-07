@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
-
-set -ex
+set -e
 
 # Perform all actions as $POSTGRES_USER
 export PGUSER="$POSTGRES_USER"
-
-echo "max_wal_size = 2GB" >> /var/lib/postgresql/data/postgresql.conf
 
 # Create the 'template_postgis' template db
 "${psql[@]}" <<- 'EOSQL'
@@ -22,14 +19,4 @@ for DB in template_postgis "$POSTGRES_DB"; do
 		CREATE EXTENSION IF NOT EXISTS fuzzystrmatch;
 		CREATE EXTENSION IF NOT EXISTS postgis_tiger_geocoder;
 EOSQL
-done
-
-echo 'Creating database'
-createdb geodata -U postgres --no-password
-
-IFS=',' read -r -a GDS <<< "$GEODATASETS"
-
-chmod +x /datasets/*.sh
-for dataset in ${GDS[@]}; do
-  bash /datasets/${dataset}.sh
 done

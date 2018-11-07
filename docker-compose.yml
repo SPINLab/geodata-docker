@@ -8,7 +8,7 @@ services:
     volumes:
       - ./geodata/database:/var/lib/postgresql/data
       - ./geodata/datasets:/datasets
-      - ./geodata/initdb:/docker-entrypoint-initdb
+      - ./geodata/initdb:/docker-entrypoint-initdb.d
     environment:
       - GEODATASETS=BAG
 #      - BGT # no support yet

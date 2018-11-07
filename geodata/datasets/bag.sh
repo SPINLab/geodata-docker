@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-curl -L -o ./bag.backup https://data.nlextract.nl/bag/postgis/bag-laatst.backup
+curl -L -o /tmp/bag.backup https://data.nlextract.nl/bag/postgis/bag-laatst.backup
 
 su postgres <<'EOF'
   createdb geodata -U postgres --no-password
@@ -19,5 +19,5 @@ time pg_restore \
   --jobs=$(nproc) \
   --no-password \
   --verbose \
-  "./bag.backup"
+  "/tmp/bag.backup"
 echo "BAG database restore procedure succeeded, you may now connect to the database."

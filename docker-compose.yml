@@ -4,7 +4,7 @@ services:
   geodata:
 #    image: mdillon/postgis:9.6
     build:
-      dockerfile: geodata/Dockerfile
+      context: geodata
     ports:
       - '5432:5432'
     volumes:

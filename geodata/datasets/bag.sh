@@ -9,9 +9,6 @@ psql --dbname="geodata" -c "ALTER DATABASE geodata OWNER TO kademo;"
 
 echo "BAG database restore procedure started, wait for completion to connect to the database..."
 time pg_restore \
-  --host=localhost \
-  --port=5432 \
-  --username=postgres \
   --dbname=geodata \
   --jobs=$(nproc) \
   --no-password \

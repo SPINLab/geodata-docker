@@ -12,7 +12,10 @@ services:
       - ./geodata/datasets:/datasets
       - ./geodata/initdb:/docker-entrypoint-initdb.d
     environment:
-      - GEODATASETS=bag
-#      - BGT # no support yet
-#      - BRT # no support yet
+      # Standaard wordt er geen dataset geladen!
+      - GEODATASETS=
+
+      # Kies hier een combinatie van welke datasets je wil laden. Je kan deze op een later moment ook nog toevoegen.
+      # - GEODATASETS=bag
+      # - GEODATASETS=bag,brt
     restart: unless-stopped

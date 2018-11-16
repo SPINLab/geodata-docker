@@ -3,7 +3,6 @@ set -ex
 
 curl -L -o /tmp/bag.backup https://data.nlextract.nl/bag/postgis/bag-laatst.backup
 
-psql --dbname="geodata" -c "CREATE EXTENSION IF NOT EXISTS POSTGIS;"
 psql --dbname="geodata" -c "CREATE USER kademo;"
 psql --dbname="geodata" -c "ALTER DATABASE geodata OWNER TO kademo;"
 

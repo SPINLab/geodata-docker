@@ -2,7 +2,7 @@
 set -ex
 
 echo 'Creating database'
-createdb geodata -U postgres --no-password
+createdb geodata -U postgres -T template_postgis --no-password
 
 IFS=',' read -r -a GDS <<< "$GEODATASETS"
 
